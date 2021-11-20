@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>과제4 : JavaScript UI 구현</title>
+    </head>
+
+    <style>
+
+        button{
+            width: 200px;
+            height: 60px;
+            display: inline-block;
+            background-color: gray;
+            font-size: 20px;
+            color: white;
+            border: solid;
+        }
+
+    </style>
+
+    <body>
+        <button id="html" class="btns">html</button>
+        <button id="css" class="btns">css</button>
+        <button id="javascript" class="btns">javascript</button>
+    </body>
+
+    <script>
+
+        const html = document.getElementById("html");
+        const css = document.getElementById("css");
+        const js = document.getElementById("javascript");
+
+        document.getElementById("html").addEventListener("click", function(){
+            change(html);
+        });
+
+        document.getElementById("css").addEventListener("click", function(){
+            change(css);
+        });
+
+        document.getElementById("javascript").addEventListener("click", function(){
+            change(js);
+        });
+
+        function change(name){
+            reset();
+            name.style.color = "black";
+            name.style.backgroundColor = "white";
+            name.style.borderColor = "black";
+            
+        }
+
+        function reset(){
+    
+            document.getElementById("html").style.color = "white";
+            document.getElementById("html").style.backgroundColor = "gray";
+            document.getElementById("html").style.borderColor = "white";
+
+            document.getElementById("css").style.color = "white";
+            document.getElementById("css").style.backgroundColor = "gray";
+            document.getElementById("css").style.borderColor = "white";
+
+            document.getElementById("javascript").style.color = "white";
+            document.getElementById("javascript").style.backgroundColor = "gray";
+            document.getElementById("javascript").style.borderColor = "white";
+        }
+
+    </script>
+</html>
