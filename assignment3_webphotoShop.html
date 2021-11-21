@@ -112,13 +112,15 @@
                 justify-content: center;
                 align-items: center;
                 position: relative;
+    
             }
 
             button{
                 display: block;
                 margin-right: 30px;
-                
+                visibility: hidden;
             }
+
         </style>
     </head>
     <body>
@@ -194,7 +196,14 @@
                 .getElementById('image-show')
                 .lastElementChild;
             newImage.style.visibility = "visible";
-
+            // document.getElementsByClassName("btns").style.visibility = "visible";
+            grayscale.style.visibility = "visible";
+            filterblur.style.visibility = "visible";
+            shadow.style.visibility = "visible";
+            opacity.style.visibility = "visible";
+            left90deg.style.visibility = "visible";
+            right90deg.style.visibility = "visible";
+            reset.style.visibility = "visible";
         }
 
         allFunc();
