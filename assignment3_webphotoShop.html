@@ -14,6 +14,7 @@
                 font-family: sans-serif;
                 height: 100%;
                 margin: 0;
+                text-align: center;
             }
 
             .container {
@@ -46,7 +47,6 @@
                 cursor: pointer;
                 border-style: solid;
                 border-color: #1a8754;
-
             }
 
             #chooseFile {
@@ -121,10 +121,26 @@
                 visibility: hidden;
             }
 
+            #titleTxt{
+                font-size: 100px;
+            }
+
+            #subTxt{
+                font-size: 40px;
+            }
+
         </style>
     </head>
     <body>
         <div class="container mt-5">
+
+            <div class="container-fluid p-5 bg-success text-white text-center">
+                <h1 id="titleTxt">Web Photoshop</h1>
+                <p id="subTxt">SHIS's First Bootstrap Project!</p> 
+            </div>
+
+            <br><br>
+
             <form method="post" enctype="multipart/form-data">
                 <div class="button">
                     <label for="chooseFile">파일 선택 </label>
