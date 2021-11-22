@@ -222,9 +222,6 @@
             reset.style.visibility = "visible";
         }
 
-        allFunc();
-
-        function allFunc() {
 
             var grayValue = 0;
             grayscale.addEventListener("click", function () {
@@ -307,8 +304,7 @@
                 grayValue = 0;
                 btnReset();
             })
-        }
-
+        
         function btnReset() {
             grayscale.className = "btn btn-outline-secondary";
             filterblur.className = "btn btn-outline-secondary";
