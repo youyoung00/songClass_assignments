@@ -39,8 +39,8 @@
                 width: 15%;
                 display: flex;
                 justify-content: center;
-                background-color:#f7f9fb;
-                color:#1a8754;
+                background-color: #f7f9fb;
+                color: #1a8754;
                 border-radius: 6px;
                 padding: 10px;
                 font-size: 18px;
@@ -62,7 +62,7 @@
             .fileInput {
                 display: flex;
                 align-items: center;
-                border-bottom: solid 2px ;
+                border-bottom: solid 2px;
                 width: 60%;
                 height: 30px;
             }
@@ -77,7 +77,7 @@
                 justify-content: center;
                 align-items: center;
                 margin-left: 10px;
-                background-color:#f7f9fb;
+                background-color: #f7f9fb;
                 color: #1a8754;
                 border-radius: 6px;
                 padding: 10px;
@@ -100,8 +100,11 @@
 
             #img {
                 position: relative;
-                /* filter: grayscale();
-                filter: blur();
+                filter: drop-shadow(0px 0px 0px gray);
+                /* filter: grayscale(150%) blur(0px) drop-shadow(0px 0px 20px gray) opacity(100%); */
+                /* filter: grayscale(170%) blur(0px) drop-shadow(0px 0px 20px gray) opacity(50%); */
+                /* filter: grayscale(50%) blur(50px); */
+                /* filter: blur();
                 filter: drop-shadow();
                 filter: opacity();
                 transform: rotate(); */
@@ -112,23 +115,22 @@
                 justify-content: center;
                 align-items: center;
                 position: relative;
-    
+
             }
 
-            button{
+            button {
                 display: block;
                 margin-right: 30px;
                 visibility: hidden;
             }
 
-            #titleTxt{
+            #titleTxt {
                 font-size: 100px;
             }
 
-            #subTxt{
+            #subTxt {
                 font-size: 40px;
             }
-
         </style>
     </head>
     <body>
@@ -136,16 +138,22 @@
 
             <div class="container-fluid p-5 bg-success text-white text-center">
                 <h1 id="titleTxt">Web Photoshop</h1>
-                <p id="subTxt">SHIS's First Bootstrap Project!</p> 
+                <p id="subTxt">SHIN's First Bootstrap Project!</p>
             </div>
 
             <br><br>
 
             <form method="post" enctype="multipart/form-data">
                 <div class="button">
-                    <label for="chooseFile">파일 선택 </label>
+                    <label for="chooseFile">파일 선택
+                    </label>
                 </div>
-                <input type="file" id="chooseFile" name="chooseFile" accept="image/*" onchange="loadFile(this)">
+                <input
+                    type="file"
+                    id="chooseFile"
+                    name="chooseFile"
+                    accept="image/*"
+                    onchange="loadFile(this)">
             </form>
             <div class="fileContainer">
                 <div class="fileInput">
@@ -158,25 +166,25 @@
             </div>
         </div>
 
-    <br><br>
+        <br><br>
 
-    <div class="image-show" id="image-show"></div>
+        <div class="image-show" id="image-show"></div>
 
-    <br><br>
+        <br><br>
 
-            <div class="filterBtns">
-                <button id="grayscale"type="button"class="btn btn-outline-secondary">회색으로</button>
-                <button id="filterblur" type="button" class="btn btn-outline-secondary">흐리게</button>
-                <button id="shadow" type="button" class="btn btn-outline-secondary">그림자</button>
-                <button id="opacity" type="button" class="btn btn-outline-secondary">50%투명</button>
-                <button id="left90deg" type="button" class="btn btn-outline-success">좌로 90도 회전</button>
-                <button id="right90deg" type="button" class="btn btn-outline-success">우로 90도 회전</button>
-                <button id="reset" type="button" class="btn btn-success">이미지 초기화</button>
-            </div>
+        <div class="filterBtns">
+            <button id="grayscale" type="button" class="btn btn-outline-secondary">회색으로</button>
+            <button id="filterblur" type="button" class="btn btn-outline-secondary">흐리게</button>
+            <button id="shadow" type="button" class="btn btn-outline-secondary">그림자</button>
+            <button id="opacity" type="button" class="btn btn-outline-secondary">50%투명</button>
+            <button id="left90deg" type="button" class="btn btn-outline-success">좌로 90도 회전</button>
+            <button id="right90deg" type="button" class="btn btn-outline-success">우로 90도 회전</button>
+            <button id="reset" type="button" class="btn btn-success">이미지 초기화</button>
+        </div>
 
     </body>
 
-        <script>
+    <script>
 
         var grayscale = document.getElementById("grayscale");
         var filterblur = document.getElementById("filterblur");
@@ -222,89 +230,99 @@
             reset.style.visibility = "visible";
         }
 
+        var allVal = [
+            grayValue = 0,
+            blurValue = 0,
+            shadowValue = 0,
+            opacityValue = 100,
+        ];
 
-            var grayValue = 0;
-            grayscale.addEventListener("click", function () {
-                grayValue = grayValue + 10;
-                var myfunc = "grayscale(" + grayValue + "%)";
-                var name = grayscale;
-                plusFunc(name, myfunc);
-                document
-                    .getElementById("grayscale")
-                    .className = "btn btn-secondary";
-
-            })
-            var blurValue = 0;
-            filterblur.addEventListener("click", function () {
-                blurValue = blurValue + 2;
-                var myfunc = "blur(" + blurValue + "px)";
-                var name = filterblur;
-                plusFunc(name, myfunc);
-                document
-                    .getElementById("filterblur")
-                    .className = "btn btn-secondary";
-            })
-            var shadowValue = 0;
-            shadow.addEventListener("click", function () {
-                shadowValue = shadowValue + 5;
-                var myfunc = "drop-shadow(" + shadowValue + "px " + shadowValue +
-                        "px 20px gray)";
-                var name = shadow;
-                plusFunc(name, myfunc);
-                document
-                    .getElementById("shadow")
-                    .className = "btn btn-secondary";
-            })
-            var opacityValue = 100;
-            opacity.addEventListener("click", function () {
-                opacityValue = opacityValue - 10;
-                var myfunc = "opacity(" + opacityValue + "%)";
-                var name = opacity;
-                plusFunc(name, myfunc);
-                document
-                    .getElementById("opacity")
-                    .className = "btn btn-secondary";
-            })
-            var leftRotate = 0;
-            left90deg.addEventListener("click", function () {
-                leftRotate = leftRotate + 90;
-                var myfunc = "rotate(" + leftRotate + "deg)";
-                var name = left90deg;
-                plusFunc(name, myfunc);
-                document
-                    .getElementById("left90deg")
-                    .className = "btn btn-success";
-            })
-
-            var rightRotate = 0;
-            right90deg.addEventListener("click", function () {
-                rightRotate = rightRotate + 270;
-                var myfunc = "rotate(" + rightRotate + "deg)";
-                var name = right90deg;
-                plusFunc(name, myfunc);
-                document
-                    .getElementById("right90deg")
-                    .className = "btn btn-success";
-            })
-
-            reset.addEventListener("click", function () {
-                document
-                    .getElementById("img")
-                    .style
-                    .filter = "none";
-                document
-                    .getElementById("img")
-                    .style
-                    .transform = "rotate(0deg)";
-                rightRotate = 0;
-                leftRotate = 0;
-                opacityValue = 100;
-                shadowValue = 0;
-                blurValue = 0;
-                grayValue = 0;
-                btnReset();
-            })
         
+        var rotateVal = 0
+
+        grayscale.addEventListener("click", function () {
+            allVal[0] = allVal[0] + 10;
+            var myfunc = `grayscale(${allVal[0]}%) blur(${allVal[1]}px) drop-shadow(${allVal[2]}px ${allVal[2]}px ${allVal[2]}px gray) opacity(${allVal[3]}%)`
+            // blur(${allVal[1]}px) drop-shadow(${allVal[2]}px ${allVal[2]}px 20px gray)
+            // opacity(${allVal[3]}%);` ;
+            var name = grayscale;
+            plusFunc(name, myfunc);
+            document
+                .getElementById("grayscale")
+                .className = "btn btn-secondary";
+        })
+
+        filterblur.addEventListener("click", function () {
+            allVal[1] = allVal[1] + 2;
+            var myfunc = `grayscale(${allVal[0]}%) blur(${allVal[1]}px) drop-shadow(${allVal[2]}px ${allVal[2]}px ${allVal[2]}px gray) opacity(${allVal[3]}%)`
+            var name = filterblur;
+            plusFunc(name, myfunc);
+            document
+                .getElementById("filterblur")
+                .className = "btn btn-secondary";
+        })
+
+        shadow.addEventListener("click", function () {
+            allVal[2] = allVal[2] + 5;
+            var myfunc = `grayscale(${allVal[0]}%) blur(${allVal[1]}px) drop-shadow(${allVal[2]}px ${allVal[2]}px ${allVal[2]}px gray) opacity(${allVal[3]}%)`
+            var name = shadow;
+            plusFunc(name, myfunc);
+            document
+                .getElementById("shadow")
+                .className = "btn btn-secondary";
+        })
+
+        opacity.addEventListener("click", function () {
+            allVal[3] = allVal[3] - 10;
+            var myfunc = `grayscale(${allVal[0]}%) blur(${allVal[1]}px) drop-shadow(${allVal[2]}px ${allVal[2]}px ${allVal[2]}px gray) opacity(${allVal[3]}%)`
+            var name = opacity;
+            plusFunc(name, myfunc);
+            document
+                .getElementById("opacity")
+                .className = "btn btn-secondary";
+        })
+        
+        left90deg.addEventListener("click", function () {
+            rotateVal = rotateVal + 90;
+            var myfunc = "rotate(" + rotateVal + "deg)";
+            var name = left90deg;
+            plusFunc(name, myfunc);
+            document
+                .getElementById("left90deg")
+                .className = "btn btn-success";
+        })
+
+        
+        right90deg.addEventListener("click", function () {
+            rotateVal = rotateVal + 270;
+            var myfunc = "rotate(" + rotateVal + "deg)";
+            var name = right90deg;
+            plusFunc(name, myfunc);
+            document
+                .getElementById("right90deg")
+                .className = "btn btn-success";
+        })
+
+        reset.addEventListener("click", function () {
+            
+            allVal[0] = 0;
+            allVal[1] = 0;
+            allVal[2] = 0;
+            allVal[3] = 100;
+
+            rotateVal = 0;
+        
+            document
+                .getElementById("img")
+                .style
+                .filter = `grayscale(${allVal[0]}%) blur(${allVal[1]}px) drop-shadow(${allVal[2]}px ${allVal[2]}px ${allVal[2]}px gray) opacity(${allVal[3]}%)`;
+            document
+                .getElementById("img")
+                .style
+                .transform = `rotate(${rotateVal}deg)`;
+            btnReset();
+        })
+
         function btnReset() {
             grayscale.className = "btn btn-outline-secondary";
             filterblur.className = "btn btn-outline-secondary";
@@ -335,5 +353,5 @@
                     .filter = myfunc;
             }
         }
-        </script>
+    </script>
 </html>
