@@ -101,13 +101,6 @@
             #img {
                 position: relative;
                 filter: drop-shadow(0px 0px 0px gray);
-                /* filter: grayscale(150%) blur(0px) drop-shadow(0px 0px 20px gray) opacity(100%); */
-                /* filter: grayscale(170%) blur(0px) drop-shadow(0px 0px 20px gray) opacity(50%); */
-                /* filter: grayscale(50%) blur(50px); */
-                /* filter: blur();
-                filter: drop-shadow();
-                filter: opacity();
-                transform: rotate(); */
             }
 
             .filterBtns {
@@ -213,14 +206,12 @@
         }
 
         var submit = document.getElementById('submitButton');
-        submit.onclick = showImage; //Submit 버튼 클릭시 이미지 보여주기
-
+        submit.onclick = showImage; 
         function showImage() {
             var newImage = document
                 .getElementById('image-show')
                 .lastElementChild;
             newImage.style.visibility = "visible";
-            // document.getElementsByClassName("btns").style.visibility = "visible";
             grayscale.style.visibility = "visible";
             filterblur.style.visibility = "visible";
             shadow.style.visibility = "visible";
@@ -234,17 +225,15 @@
             grayValue = 0,
             blurValue = 0,
             shadowValue = 0,
-            opacityValue = 100,
+            opacityValue = 100
         ];
 
-        
         var rotateVal = 0
 
         grayscale.addEventListener("click", function () {
             allVal[0] = allVal[0] + 10;
             var myfunc = `grayscale(${allVal[0]}%) blur(${allVal[1]}px) drop-shadow(${allVal[2]}px ${allVal[2]}px ${allVal[2]}px gray) opacity(${allVal[3]}%)`
-            // blur(${allVal[1]}px) drop-shadow(${allVal[2]}px ${allVal[2]}px 20px gray)
-            // opacity(${allVal[3]}%);` ;
+
             var name = grayscale;
             plusFunc(name, myfunc);
             document
@@ -281,7 +270,7 @@
                 .getElementById("opacity")
                 .className = "btn btn-secondary";
         })
-        
+
         left90deg.addEventListener("click", function () {
             rotateVal = rotateVal + 90;
             var myfunc = "rotate(" + rotateVal + "deg)";
@@ -292,7 +281,6 @@
                 .className = "btn btn-success";
         })
 
-        
         right90deg.addEventListener("click", function () {
             rotateVal = rotateVal + 270;
             var myfunc = "rotate(" + rotateVal + "deg)";
@@ -304,14 +292,14 @@
         })
 
         reset.addEventListener("click", function () {
-            
+
             allVal[0] = 0;
             allVal[1] = 0;
             allVal[2] = 0;
             allVal[3] = 100;
 
             rotateVal = 0;
-        
+
             document
                 .getElementById("img")
                 .style
