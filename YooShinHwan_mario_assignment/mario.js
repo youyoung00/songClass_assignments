@@ -71,7 +71,6 @@ function mario_down() {
         $('#main').css("background-image", "none");
         $('#movingIcons').hide();
         $('.playing_scores').hide();
-
         jump = true;
         $('#attack_score').text(" 공격 점수 : " + killscore);
         $('#defense_score').text(" 방어 점수 : " + jumpscore);
@@ -139,10 +138,12 @@ function input_nicname() {
     if (nicname.length > 3) {
         alert('닉네임은 세글자까지 입력 가능합니다.')
         input_nicname();
+    } else if(!nicname){
+        alert('입력된 이름이 없습니다.')
+        input_nicname();
     } else {
         return nicname;
     }
-    return nicname;
 }
 
 function score_upload_db() {
