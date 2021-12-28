@@ -138,7 +138,7 @@ function input_nicname() {
     if (nicname.length > 3) {
         alert('닉네임은 세글자까지 입력 가능합니다.')
         input_nicname();
-    } else if(!nicname){
+    } else if (!nicname) {
         alert('입력된 이름이 없습니다.')
         input_nicname();
     } else {
