@@ -197,8 +197,6 @@ function score_upload_db() {
     } else {
         return;
     }
-
-    return score_database;
 }
 
 $(function () {
