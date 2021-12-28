@@ -6,16 +6,11 @@ var jumpscore = 0;
 var totalscore = 0;
 var ranking = 0;
 
-// var final_killscores = [];
-// var final_jumpscores = [];
-// var final_totalscores = [];
-// var final_nicnames = [];
-
 var score_database = [];
 
-function gumba_init(){
-    $('#gumba_block').css('left','');
-    $('#gumba_block').css('right','10px');
+function gumba_init() {
+    $('#gumba_block').css('left', '');
+    $('#gumba_block').css('right', '10px');
 }
 
 function gumba_start() {
@@ -37,8 +32,6 @@ function gumba_start() {
             jumpscore = jumpscore + 100;
         }
 
-        // $('#gumba_block').css('left', "");
-        // $('#gumba_block').css('right', "10px");
         gumba_init();
         $('#gumba_block').hide();
         setTimeout(gumba_start, random_speed - 1000);
@@ -65,22 +58,19 @@ function set_score() {
 }
 
 function mario_down() {
-    
+
     var beat = Number($("#gumba_block").css("left").replace("px", ""));
     if (beat <= 110 && jump == false) {
-        
+
         $("#gumba_block").stop();
         gumba_init();
-        // $("#mario_block").stop(); $("#gumba_block").stop();
-        // $("#mario_block").stop();
+
         $('#mario_block').hide();
         $('#reusltView').show();
         $('table').show();
         $('#main').css("background-image", "none");
         $('#movingIcons').hide();
         $('.playing_scores').hide();
-        // clearInterval(mario_down);
-        // clearInterval(gumba_down);
 
         jump = true;
         $('#attack_score').text(" 공격 점수 : " + killscore);
@@ -128,7 +118,7 @@ function firstView() {
 function play_game_open() {
 
     $('#play_game').click(function () {
-        
+
         $('.playing_scores').show();
         $('#main').css("background-image", `url('bg.jpeg')`);
         $('.input-form').hide();
